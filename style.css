@@ -1,0 +1,430 @@
+/* 모든 요소의 기본 설정을 해주는 곳이에요 */
+* {
+    margin: 0; /* 바깥쪽 여백을 없애요 */
+    padding: 0; /* 안쪽 여백을 없애요 */
+    box-sizing: border-box; /* 크기 계산을 쉽게 해요 */
+    font-family: 'Arial', sans-serif; /* 글꼴을 설정해요 */
+}
+
+/* 전체 페이지의 배경과 기본 모양을 설정하는 곳이에요 */
+body {
+    background-color: #f5f5f5; /* 연한 회색 배경색이에요 */
+    color: #333; /* 글자 색깔을 진한 회색으로 해요 */
+    display: flex; /* 요소들을 가로로 정렬할 준비를 해요 */
+    justify-content: center; /* 가운데로 정렬해요 */
+    align-items: center; /* 세로로도 가운데 정렬해요 */
+    min-height: 100vh; /* 화면 전체 높이만큼 키워요 */
+    text-align: center; /* 글자를 가운데 정렬해요 */
+    position: relative; /* 폭죽을 위한 위치 설정이에요 */
+}
+
+/* 와장창 터지는 폭죽 효과를 만드는 곳이에요 */
+.fireworks {
+    position: fixed; /* 화면에 고정해서 표시해요 */
+    top: 0; /* 화면 맨 위에서 시작해요 */
+    left: 0; /* 화면 맨 왼쪽에서 시작해요 */
+    width: 100%; /* 화면 전체 너비를 사용해요 */
+    height: 100%; /* 화면 전체 높이를 사용해요 */
+    pointer-events: none; /* 마우스 클릭이 안 되게 해요 */
+    z-index: 1000; /* 다른 요소보다 위에 표시해요 */
+    overflow: hidden; /* 화면 밖으로 나가는 효과를 숨겨요 */
+}
+
+/* 큰 폭죽들을 만드는 곳이에요 */
+.big-firework {
+    position: absolute; /* 원하는 위치에 놓을 수 있게 해요 */
+    width: 30px; /* 폭죽을 크게 만들어요 */
+    height: 30px; /* 폭죽을 크게 만들어요 */
+    border-radius: 50%; /* 동그랗게 만들어요 */
+    animation: mega-explode 2s ease-out forwards; /* 큰 폭발 애니메이션을 실행해요 */
+}
+
+/* 작은 파티클들을 만드는 곳이에요 */
+.particle {
+    position: absolute; /* 원하는 위치에 놓을 수 있게 해요 */
+    width: 8px; /* 작은 크기로 만들어요 */
+    height: 8px; /* 작은 크기로 만들어요 */
+    border-radius: 50%; /* 동그랗게 만들어요 */
+    animation: particle-burst 1.5s ease-out forwards; /* 파티클 터지는 애니메이션이에요 */
+}
+
+/* 반짝이는 별들을 만드는 곳이에요 */
+.star {
+    position: absolute; /* 원하는 위치에 놓을 수 있게 해요 */
+    font-size: 2rem; /* 별을 크게 만들어요 */
+    animation: star-twinkle 2.5s ease-out forwards; /* 별 반짝이는 애니메이션이에요 */
+}
+
+/* 각 큰 폭죽의 위치와 색깔을 다르게 해줘요 */
+.firework-1 {
+    top: 15%; left: 20%;
+    background: radial-gradient(circle, #ff1744, #ff5722); /* 빨간색 폭죽 */
+    animation-delay: 0s;
+}
+
+.firework-2 {
+    top: 25%; left: 75%;
+    background: radial-gradient(circle, #00bcd4, #03a9f4); /* 파란색 폭죽 */
+    animation-delay: 0.1s;
+}
+
+.firework-3 {
+    top: 55%; left: 15%;
+    background: radial-gradient(circle, #4caf50, #8bc34a); /* 초록색 폭죽 */
+    animation-delay: 0.2s;
+}
+
+.firework-4 {
+    top: 45%; left: 80%;
+    background: radial-gradient(circle, #ffeb3b, #ffc107); /* 노란색 폭죽 */
+    animation-delay: 0.05s;
+}
+
+.firework-5 {
+    top: 70%; left: 50%;
+    background: radial-gradient(circle, #9c27b0, #673ab7); /* 보라색 폭죽 */
+    animation-delay: 0.15s;
+}
+
+.firework-6 {
+    top: 35%; left: 45%;
+    background: radial-gradient(circle, #e91e63, #f06292); /* 분홍색 폭죽 */
+    animation-delay: 0.25s;
+}
+
+/* 각 파티클의 위치와 색깔을 다르게 해줘요 */
+.particle-1 { top: 20%; left: 25%; background: #ff4444; animation-delay: 0.1s; }
+.particle-2 { top: 30%; left: 70%; background: #44ff44; animation-delay: 0.2s; }
+.particle-3 { top: 60%; left: 20%; background: #4444ff; animation-delay: 0.3s; }
+.particle-4 { top: 50%; left: 75%; background: #ffff44; animation-delay: 0.15s; }
+.particle-5 { top: 75%; left: 55%; background: #ff44ff; animation-delay: 0.25s; }
+.particle-6 { top: 40%; left: 85%; background: #44ffff; animation-delay: 0.35s; }
+.particle-7 { top: 80%; left: 30%; background: #ff8844; animation-delay: 0.4s; }
+.particle-8 { top: 10%; left: 60%; background: #88ff44; animation-delay: 0.45s; }
+.particle-9 { top: 65%; left: 10%; background: #4488ff; animation-delay: 0.5s; }
+.particle-10 { top: 25%; left: 90%; background: #ff4488; animation-delay: 0.3s; }
+.particle-11 { top: 85%; left: 40%; background: #88ff88; animation-delay: 0.35s; }
+.particle-12 { top: 15%; left: 35%; background: #8844ff; animation-delay: 0.4s; }
+
+/* 각 별의 위치를 다르게 해줘요 */
+.star-1 { top: 10%; left: 30%; animation-delay: 0.2s; }
+.star-2 { top: 40%; left: 70%; animation-delay: 0.4s; }
+.star-3 { top: 70%; left: 25%; animation-delay: 0.6s; }
+.star-4 { top: 30%; left: 80%; animation-delay: 0.3s; }
+.star-5 { top: 80%; left: 60%; animation-delay: 0.5s; }
+.star-6 { top: 50%; left: 40%; animation-delay: 0.7s; }
+
+/* 와장창 터지는 큰 폭죽 애니메이션이에요 */
+@keyframes mega-explode {
+    0% {
+        transform: scale(0) rotate(0deg);
+        opacity: 1;
+        box-shadow: 
+            0 0 0 0 currentColor,
+            0 0 0 0 currentColor,
+            0 0 0 0 currentColor,
+            0 0 0 0 currentColor;
+    }
+    25% {
+        transform: scale(1) rotate(90deg);
+        opacity: 1;
+        box-shadow: 
+            50px 0 30px -10px currentColor,
+            -50px 0 30px -10px currentColor,
+            0 50px 30px -10px currentColor,
+            0 -50px 30px -10px currentColor;
+    }
+    50% {
+        transform: scale(2) rotate(180deg);
+        opacity: 0.9;
+        box-shadow: 
+            100px 0 50px -15px currentColor,
+            -100px 0 50px -15px currentColor,
+            0 100px 50px -15px currentColor,
+            0 -100px 50px -15px currentColor,
+            70px 70px 40px -10px currentColor,
+            -70px -70px 40px -10px currentColor,
+            70px -70px 40px -10px currentColor,
+            -70px 70px 40px -10px currentColor;
+    }
+    75% {
+        transform: scale(3) rotate(270deg);
+        opacity: 0.6;
+        box-shadow: 
+            150px 0 70px -20px transparent,
+            -150px 0 70px -20px transparent,
+            0 150px 70px -20px transparent,
+            0 -150px 70px -20px transparent,
+            105px 105px 60px -15px transparent,
+            -105px -105px 60px -15px transparent,
+            105px -105px 60px -15px transparent,
+            -105px 105px 60px -15px transparent,
+            120px 50px 50px -10px transparent,
+            -120px -50px 50px -10px transparent;
+    }
+    100% {
+        transform: scale(4) rotate(360deg);
+        opacity: 0;
+        box-shadow: 
+            200px 0 100px -30px transparent,
+            -200px 0 100px -30px transparent,
+            0 200px 100px -30px transparent,
+            0 -200px 100px -30px transparent,
+            140px 140px 80px -20px transparent,
+            -140px -140px 80px -20px transparent,
+            140px -140px 80px -20px transparent,
+            -140px 140px 80px -20px transparent,
+            160px 80px 70px -15px transparent,
+            -160px -80px 70px -15px transparent,
+            80px 160px 70px -15px transparent,
+            -80px -160px 70px -15px transparent;
+    }
+}
+
+/* 파티클이 사방으로 튀는 애니메이션이에요 */
+@keyframes particle-burst {
+    0% {
+        transform: scale(1) translate(0, 0);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.5) translate(var(--random-x, 100px), var(--random-y, -50px));
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(0) translate(var(--random-x, 200px), var(--random-y, -100px));
+        opacity: 0;
+    }
+}
+
+/* 각 파티클마다 다른 방향으로 튀게 하기 위한 설정이에요 */
+.particle-1 { --random-x: 80px; --random-y: -120px; }
+.particle-2 { --random-x: -90px; --random-y: -80px; }
+.particle-3 { --random-x: 110px; --random-y: 60px; }
+.particle-4 { --random-x: -70px; --random-y: 90px; }
+.particle-5 { --random-x: 130px; --random-y: -40px; }
+.particle-6 { --random-x: -100px; --random-y: -110px; }
+.particle-7 { --random-x: 60px; --random-y: 70px; }
+.particle-8 { --random-x: -120px; --random-y: -60px; }
+.particle-9 { --random-x: 90px; --random-y: 100px; }
+.particle-10 { --random-x: -80px; --random-y: 50px; }
+.particle-11 { --random-x: 140px; --random-y: -90px; }
+.particle-12 { --random-x: -110px; --random-y: 80px; }
+
+/* 별이 반짝이는 애니메이션이에요 */
+@keyframes star-twinkle {
+    0% {
+        transform: scale(0) rotate(0deg);
+        opacity: 0;
+    }
+    20% {
+        transform: scale(1.5) rotate(72deg);
+        opacity: 1;
+    }
+    40% {
+        transform: scale(1.2) rotate(144deg);
+        opacity: 0.8;
+    }
+    60% {
+        transform: scale(1.8) rotate(216deg);
+        opacity: 1;
+    }
+    80% {
+        transform: scale(1) rotate(288deg);
+        opacity: 0.6;
+    }
+    100% {
+        transform: scale(0) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* 게임이 들어가는 큰 상자를 꾸미는 곳이에요 */
+.container {
+    background-color: white; /* 배경을 하얀색으로 해요 */
+    border-radius: 15px; /* 모서리를 둥글게 만들어요 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 그림자를 만들어서 떠있는 것처럼 보이게 해요 */
+    padding: 30px; /* 안쪽 여백을 만들어요 */
+    max-width: 500px; /* 최대 너비를 정해요 */
+    width: 90%; /* 화면의 90%만큼 너비를 가져요 */
+    position: relative; /* 다른 요소들과의 위치 관계를 설정해요 */
+    z-index: 1; /* 폭죽보다 아래에 표시해요 */
+}
+
+/* 게임 제목을 꾸미는 곳이에요 */
+h1 {
+    color: #424242; /* 제목 글자 색깔을 설정해요 */
+    margin-bottom: 20px; /* 아래쪽 여백을 만들어요 */
+    font-size: 2.5rem; /* 글자 크기를 크게 만들어요 */
+}
+
+/* 게임 설명 글자를 꾸미는 곳이에요 */
+.instructions {
+    color: #757575; /* 설명 글자를 회색으로 해요 */
+    margin-bottom: 25px; /* 아래쪽 여백을 만들어요 */
+    line-height: 1.5; /* 줄 간격을 넓혀서 읽기 쉽게 해요 */
+}
+
+/* 전자시계 모양을 만드는 곳이에요 */
+.timer {
+    font-size: 4rem; /* 숫자를 아주 크게 만들어요 */
+    font-family: 'Courier New', monospace; /* 전자시계같은 글꼴을 사용해요 */
+    font-weight: bold; /* 글자를 굵게 만들어요 */
+    background-color: #e0e0e0; /* 전자시계 배경을 회색으로 해요 */
+    color: #333; /* 숫자 색깔을 설정해요 */
+    padding: 20px; /* 안쪽 여백을 만들어요 */
+    border-radius: 10px; /* 모서리를 둥글게 만들어요 */
+    margin: 20px 0; /* 위아래 여백을 만들어요 */
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1); /* 안쪽으로 들어간 그림자를 만들어요 */
+    user-select: none; /* 글자를 선택할 수 없게 해요 */
+}
+
+/* 모든 버튼의 기본 모양을 설정하는 곳이에요 */
+button {
+    background-color: #bdbdbd; /* 기본 버튼 색깔을 회색으로 해요 */
+    color: white; /* 글자 색깔을 하얀색으로 해요 */
+    border: none; /* 테두리를 없애요 */
+    border-radius: 8px; /* 모서리를 둥글게 만들어요 */
+    padding: 12px 24px; /* 버튼 안쪽 여백을 만들어요 */
+    margin: 0 10px; /* 양옆 여백을 만들어요 */
+    font-size: 1rem; /* 글자 크기를 설정해요 */
+    cursor: pointer; /* 마우스를 올리면 손가락 모양으로 바뀌게 해요 */
+    transition: all 0.2s ease; /* 색깔이 바뀔 때 부드럽게 변하도록 해요 */
+}
+
+/* 마우스를 버튼 위에 올렸을 때의 모양이에요 */
+button:hover {
+    background-color: #9e9e9e; /* 색깔을 더 진하게 만들어요 */
+    transform: translateY(-2px); /* 버튼을 살짝 위로 올려요 */
+}
+
+/* 게임 시작 버튼의 색깔을 설정하는 곳이에요 */
+#gameBtn[data-state="start"] {
+    background-color: #b2dfdb; /* 파스텔 민트색으로 만들어요 */
+    font-size: 1.2rem; /* 글자를 조금 더 크게 해요 */
+    padding: 15px 30px; /* 버튼을 더 크게 만들어요 */
+}
+
+/* 시작 버튼에 마우스를 올렸을 때 색깔이에요 */
+#gameBtn[data-state="start"]:hover {
+    background-color: #80cbc4; /* 더 진한 민트색으로 바뀌어요 */
+}
+
+/* 게임 정지 버튼의 색깔을 설정하는 곳이에요 */
+#gameBtn[data-state="stop"] {
+    background-color: #ffccbc; /* 파스텔 살구색으로 만들어요 */
+    font-size: 1.2rem; /* 글자를 조금 더 크게 해요 */
+    padding: 15px 30px; /* 버튼을 더 크게 만들어요 */
+}
+
+/* 정지 버튼에 마우스를 올렸을 때 색깔이에요 */
+#gameBtn[data-state="stop"]:hover {
+    background-color: #ffab91; /* 더 진한 살구색으로 바뀌어요 */
+}
+
+/* 다시하기 버튼의 색깔을 설정하는 곳이에요 */
+#gameBtn[data-state="reset"] {
+    background-color: #d1c4e9; /* 파스텔 라벤더색으로 만들어요 */
+    font-size: 1.2rem; /* 글자를 조금 더 크게 해요 */
+    padding: 15px 30px; /* 버튼을 더 크게 만들어요 */
+}
+
+/* 다시하기 버튼에 마우스를 올렸을 때 색깔이에요 */
+#gameBtn[data-state="reset"]:hover {
+    background-color: #b39ddb; /* 더 진한 라벤더색으로 바뀌어요 */
+}
+
+/* 공유하기 버튼의 색깔을 설정하는 곳이에요 */
+#shareBtn {
+    background-color: #c5e1a5; /* 파스텔 연두색으로 만들어요 */
+    margin-top: 10px; /* 위쪽 여백을 만들어요 */
+}
+
+/* 공유하기 버튼에 마우스를 올렸을 때 색깔이에요 */
+#shareBtn:hover {
+    background-color: #aed581; /* 더 진한 연두색으로 바뀌어요 */
+}
+
+/* 게임 결과가 나오는 영역을 설정하는 곳이에요 */
+.result-container {
+    margin: 20px 0; /* 위아래 여백을 만들어요 */
+    min-height: 60px; /* 최소 높이를 정해서 빈 공간을 확보해요 */
+}
+
+/* 결과 메시지와 보너스 메시지를 꾸미는 곳이에요 */
+#result, #bonus {
+    font-size: 1.2rem; /* 글자 크기를 설정해요 */
+    padding: 10px; /* 안쪽 여백을 만들어요 */
+    margin: 10px 0; /* 위아래 여백을 만들어요 */
+    border-radius: 8px; /* 모서리를 둥글게 만들어요 */
+    transition: all 0.3s ease; /* 나타날 때 부드럽게 보이도록 해요 */
+}
+
+/* 성공했을 때 메시지 색깔을 설정하는 곳이에요 */
+.success {
+    background-color: #c8e6c9; /* 파스텔 연두색 배경으로 만들어요 */
+    color: #2e7d32; /* 진한 초록색 글자로 만들어요 */
+}
+
+/* 실패했을 때 메시지 색깔을 설정하는 곳이에요 */
+.fail {
+    background-color: #ffcdd2; /* 파스텔 분홍색 배경으로 만들어요 */
+    color: #c62828; /* 진한 빨간색 글자로 만들어요 */
+}
+
+/* 보너스 메시지 색깔을 설정하는 곳이에요 */
+.bonus {
+    background-color: #fff9c4; /* 파스텔 노란색 배경으로 만들어요 */
+    color: #f57f17; /* 진한 주황색 글자로 만들어요 */
+}
+
+/* 랭킹이 표시되는 영역을 설정하는 곳이에요 */
+.ranking-container {
+    margin-top: 30px; /* 위쪽 여백을 크게 만들어요 */
+    border-top: 1px solid #e0e0e0; /* 위쪽에 선을 그어서 구분해요 */
+    padding-top: 20px; /* 위쪽 안쪽 여백을 만들어요 */
+}
+
+/* 랭킹 제목을 꾸미는 곳이에요 */
+h2 {
+    color: #616161; /* 제목 색깔을 회색으로 해요 */
+    margin-bottom: 15px; /* 아래쪽 여백을 만들어요 */
+    font-size: 1.5rem; /* 글자 크기를 설정해요 */
+}
+
+/* 랭킹 목록을 꾸미는 곳이에요 */
+#rankingList {
+    list-style-position: inside; /* 숫자를 안쪽에 표시해요 */
+    text-align: left; /* 글자를 왼쪽으로 정렬해요 */
+    padding: 0 20px; /* 양옆 여백을 만들어요 */
+}
+
+/* 각각의 랭킹 항목을 꾸미는 곳이에요 */
+#rankingList li {
+    padding: 8px 0; /* 위아래 여백을 만들어요 */
+    border-bottom: 1px dashed #e0e0e0; /* 아래쪽에 점선을 그어요 */
+    color: #616161; /* 글자 색깔을 회색으로 해요 */
+}
+
+/* 1등을 특별하게 강조하는 곳이에요 */
+#rankingList li:nth-child(1) {
+    color: #212121; /* 1등은 검은색으로 해요 */
+    font-weight: bold; /* 글자를 굵게 만들어요 */
+}
+
+/* 2등과 3등을 강조하는 곳이에요 */
+#rankingList li:nth-child(2), #rankingList li:nth-child(3) {
+    font-weight: bold; /* 글자를 굵게 만들어요 */
+}
+
+/* 숨겨진 요소들을 설정하는 곳이에요 */
+.hidden {
+    display: none; /* 화면에 보이지 않게 숨겨요 */
+}
+
+/* 연속 성공 카운터를 꾸미는 곳이에요 */
+#streak {
+    font-size: 1rem; /* 글자 크기를 설정해요 */
+    color: #7b1fa2; /* 보라색 글자로 만들어요 */
+    margin: 10px 0; /* 위아래 여백을 만들어요 */
+} 

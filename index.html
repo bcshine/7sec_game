@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <!-- 웹페이지의 정보를 설정하는 곳이에요 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7초 게임</title>
+    <!-- CSS 파일을 연결해서 예쁘게 꾸미기 위해 사용해요 -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 와장창 터지는 폭죽 효과를 보여주는 곳이에요 -->
+    <div id="fireworks" class="fireworks hidden">
+        <!-- 메인 폭죽들 (큰 폭죽들) -->
+        <div class="firework big-firework firework-1"></div>
+        <div class="firework big-firework firework-2"></div>
+        <div class="firework big-firework firework-3"></div>
+        <div class="firework big-firework firework-4"></div>
+        <div class="firework big-firework firework-5"></div>
+        <div class="firework big-firework firework-6"></div>
+        
+        <!-- 작은 파티클들 (빛나는 조각들) -->
+        <div class="particle particle-1"></div>
+        <div class="particle particle-2"></div>
+        <div class="particle particle-3"></div>
+        <div class="particle particle-4"></div>
+        <div class="particle particle-5"></div>
+        <div class="particle particle-6"></div>
+        <div class="particle particle-7"></div>
+        <div class="particle particle-8"></div>
+        <div class="particle particle-9"></div>
+        <div class="particle particle-10"></div>
+        <div class="particle particle-11"></div>
+        <div class="particle particle-12"></div>
+        
+        <!-- 반짝이는 별들 -->
+        <div class="star star-1">⭐</div>
+        <div class="star star-2">✨</div>
+        <div class="star star-3">💫</div>
+        <div class="star star-4">🌟</div>
+        <div class="star star-5">⭐</div>
+        <div class="star star-6">✨</div>
+    </div>
+
+    <!-- 게임의 모든 내용을 담는 큰 상자에요 -->
+    <div class="container">
+        <!-- 게임 제목을 보여주는 곳이에요 -->
+        <h1>7초 게임</h1>
+        
+        <!-- 게임 설명을 보여주는 곳이에요 -->
+        <p class="instructions">
+            정확히 7초를 맞추세요! 시작 버튼을 누르고 7초가 지났다고 생각하면 정지 버튼을 누르세요.
+        </p>
+        
+        <!-- 전자시계처럼 시간을 보여주는 곳이에요 -->
+        <div class="timer">0.00</div>
+        
+        <!-- 게임을 조작하는 버튼들이 있는 곳이에요 -->
+        <div class="controls">
+            <!-- 하나의 버튼으로 시작/정지/다시하기를 모두 할 수 있어요 -->
+            <button id="gameBtn" data-state="start">시작</button>
+        </div>
+        
+        <!-- 게임 결과를 보여주는 곳이에요 -->
+        <div class="result-container">
+            <!-- 성공했는지 실패했는지 보여주는 곳이에요 -->
+            <div id="result" class="hidden"></div>
+            <!-- 보너스가 있으면 여기에 보여져요 -->
+            <div id="bonus" class="hidden"></div>
+            <!-- 연속으로 성공한 횟수를 보여주는 곳이에요 -->
+            <div id="streak" class="hidden">연속 성공: <span id="streakCount">0</span></div>
+        </div>
+        
+        <!-- SNS에 공유할 수 있는 버튼이 있는 곳이에요 -->
+        <div id="shareContainer" class="hidden">
+            <button id="shareBtn">결과 공유하기</button>
+        </div>
+        
+        <!-- 1등부터 5등까지 랭킹을 보여주는 곳이에요 -->
+        <div class="ranking-container">
+            <h2>랭킹</h2>
+            <!-- 순서대로 랭킹을 보여주는 목록이에요 -->
+            <ol id="rankingList"></ol>
+        </div>
+    </div>
+    
+    <!-- JavaScript 파일을 연결해서 게임이 작동하도록 해요 -->
+    <script src="script.js"></script>
+</body>
+</html>

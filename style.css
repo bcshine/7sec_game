@@ -424,7 +424,67 @@ h2 {
 
 /* 연속 성공 카운터를 꾸미는 곳이에요 */
 #streak {
-    font-size: 1rem; /* 글자 크기를 설정해요 */
-    color: #7b1fa2; /* 보라색 글자로 만들어요 */
-    margin: 10px 0; /* 위아래 여백을 만들어요 */
+    margin-top: 15px;
+    color: #27ae60;
+    font-weight: bold;
+}
+
+/* 우하단 챗봇 링크 스타일 */
+.chatbot-link {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1001;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    overflow: hidden;
+    animation: float 3s ease-in-out infinite;
+}
+
+.chatbot-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.chatbot-link a {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    gap: 8px;
+}
+
+.chatbot-icon {
+    font-size: 20px;
+    animation: pulse 2s infinite;
+}
+
+.chatbot-text {
+    white-space: nowrap;
+    opacity: 0;
+    max-width: 0;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.chatbot-link:hover .chatbot-text {
+    opacity: 1;
+    max-width: 100px;
+}
+
+/* 둥둥 떠다니는 애니메이션 */
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+/* 펄스 애니메이션 */
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
 } 
